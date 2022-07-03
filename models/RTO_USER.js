@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const schema = mongoose.Schema({
-  RTO_Id: {
+  RTO_ID: {
     type: String,
     required: true,
   },
@@ -17,32 +17,14 @@ const schema = mongoose.Schema({
     type: String,
     // required: true,
   },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   occupation: {
     type: String,
     required: true,
-  },
-  can_add: {
-    type: String,
-    enum: [0, 1, 2],
-    default: 0,
-    // 0 Cannot add any thing
-    // 1 Can add any thing update when approved.
-    // 2 add without any approval
-  },
-  can_update: {
-    type: String,
-    enum: [0, 1, 2],
-    default: 0,
-    // 0 Cannot edit any thing
-    // 1 Can edit any thing update when approved.
-    // 2 edit without any approval
-  },
-  can_delete: {
-    type: String,
-    enum: [0, 1, 2],
-    // 0 Cannot delete any thing
-    // 1 Can delete any thing delete when approved.
-    // 2 Delete without any approval
   },
   employee_no: {
     type: String,
@@ -89,6 +71,67 @@ const schema = mongoose.Schema({
   password: {
     type: String,
     required: true,
+  },
+  can_add: {
+    type: Number,
+    enum: [0, 1, 2, 3],
+    default: 3,
+    // 0 Cannot add any thing
+    // 1 Can add any thing update when approved.
+    // 2 add without any approval
+    // 3 cannot do anything1
+  },
+  can_update: {
+    type: Number,
+    enum: [0, 1, 2, 3],
+    default: 3,
+    // 0 Cannot edit any thing
+    // 1 Can edit any thing update when approved.
+    // 2 edit without any approval
+    // 3 cannot do anything
+  },
+  can_delete: {
+    type: Number,
+    enum: [0, 1, 2, 3],
+    default: 3,
+    // 0 Cannot delete any thing
+    // 1 Can delete any thing delete when approved.
+    // 2 Delete without any approval
+    // 3 cannot do anything
+  },
+  can_view: {
+    type: Number,
+    Enum: [0, 1, 2, 3],
+    default: 3,
+    // 0 no permission
+    // 1 can directly add user
+    // 2 User added will be reviewed add user
+  },
+  is_deleted: {
+    type: Number,
+    Enum: [0, 1],
+    default: 0,
+  },
+  is_verified: {
+    type: Number,
+    Enum: [0, 1],
+    default: 0,
+  },
+  is_blocked: {
+    type: Number,
+    Enum: [0, 1],
+    default: 0,
+  },
+  is_restricred: {
+    type: Number,
+    Enum: [0, 1],
+    default: 0,
+  },
+  createdAt: {
+    type: Date,
+  },
+  updatedAt: {
+    type: Date,
   },
 });
 
