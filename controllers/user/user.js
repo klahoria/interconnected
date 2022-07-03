@@ -10,7 +10,6 @@ const controllers = {
   register: async (req, res) => {
     let data = req.body;
     let password = generatePassword(10);
-    console.log(password, "password");
     let encrypted_password = await enctryptPassword(password);
     data["password"] = encrypted_password;
 
@@ -31,7 +30,6 @@ const controllers = {
 
     RTO.create(data)
       .then((resp) => {
-        console.log(resp);
         res.status(200).send({
           success: true,
           status: 200,
@@ -131,7 +129,6 @@ const controllers = {
         { is_deleted: 1 }
       )
       .then((resp) => {
-        console.log(resp);
         res.status(204).end();
       });
   },
@@ -143,7 +140,6 @@ const controllers = {
         .findByIdAndUpdate({ _id: req.body.id }, req.body.update)
         .then((resp) => {
           res.status(201).end();
-          console.log(resp);
         });
     });
   },
@@ -159,7 +155,6 @@ const controllers = {
       };
       if (body.default !== undefined) {
         findAndUpdate(body).then(async (resp) => {
-          console.log(resp, ";;;;;;;;;");
           if (resp == null || resp) {
             let data = await createMailerData(body);
             if (data) {

@@ -6,12 +6,16 @@ const user = require("../validations/userRegistration/Register");
 const isLoggedIn = require("../utils/isLoggedIn/loggedIn");
 const isRTO = require("../utils/MiddleWares/IsRTO");
 const controllers = require("../controllers/user/user");
+var checkExists = require("../utils/MiddleWares/emailExists");
+const IsRTO = require("../utils/MiddleWares/IsRTO");
 
 router.post("/register", validator(user), controllers.register);
 
 router.post("/login", controllers.login);
 
-router.route("/add_user_rto").post(isLoggedIn, controllers.add_user_rto);
+router
+  .route("/add_user_rto")
+  .post(isLoggedIn, IsRTO, checkExists, controllers.add_user_rto);
 
 router
   .route("/get_rto_users")
