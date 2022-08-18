@@ -1,0 +1,19 @@
+.header_s1 {
+  max-height: 75px;
+  height: 75px;
+  /* padding: auto; */
+}
+
+.navbar-brand > img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.w-20 {
+  width: 20px;
+}
+
+.h-20 {
+  height: 20px;
+}
