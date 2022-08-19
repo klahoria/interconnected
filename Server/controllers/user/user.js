@@ -6,6 +6,7 @@ const { RTO } = require("../../models/user");
 const RTO_USER = require("../../models/RTO_USER");
 const mailer_details = require("../../models/mailer_config");
 var os = require("os");
+const access_token = require("../../models/acces_token");
 
 const controllers = {
   register: async (req, res) => {
@@ -81,6 +82,38 @@ const controllers = {
         })
         .catch((err) => {
           console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  access_token_login: async (req, res) => {
+    try {
+      access_token
+        .aggregate([
+          {
+            $match: {
+              access_token: req.headers.token,
+            },
+          },
+          {
+            $lookup: {
+              from: "rtos",
+              localField: "email",
+              foreignField: "email",
+              as: "userInfo",
+            },
+          },
+        ])
+        .then((resp) => {
+          delete resp[0].userInfo[0].password;
+          delete resp[0].userInfo[0].createdAt;
+          delete resp[0].createdAt;
+          delete resp[0].userInfo[0]._id;
+          delete resp[0]._id;
+          console.log(resp);
+          res.send(resp);
         });
     } catch (error) {
       console.log(error);

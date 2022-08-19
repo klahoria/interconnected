@@ -38,3 +38,7 @@ code {
   border-bottom: 4px solid #4621d9;
   color: #4621d9;
 }
+
+.in_max > * {
+  height: 100%;
+}

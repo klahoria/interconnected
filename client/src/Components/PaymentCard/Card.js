@@ -1,7 +1,9 @@
+import { Offcanvas } from "bootstrap";
 import React, { Component } from "react";
 import { BsFillExclamationTriangleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import "./Card.css";
+import SideBar from '../StyledComponents/OffCanvas/SideBar'
 
 export default class Card extends Component {
   render() {
@@ -10,7 +12,7 @@ export default class Card extends Component {
       <>
         {this.props.account_info && (
           <div className="card_payment rounded-4 px-4 py-3 mx-auto">
-            <div className="row justify-content-between h-100">
+            <div className="row justify-content-between ">
               <div className="col-12">
                 <div className="row">
                   <div className="col-6">
@@ -48,7 +50,8 @@ export default class Card extends Component {
               <p className="fs-4 fw-bold mb-0">
                 Please Update Your Account Info.
                 <br />
-                <Link className="fs-6" to="/update-account">
+                  <SideBar />
+                <Link className="fs-6" to=""  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                   Upadte Account
                 </Link>
               </p>

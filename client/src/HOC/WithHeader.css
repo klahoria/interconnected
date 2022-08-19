@@ -10,5 +10,9 @@
 }
 
 .main_container {
-  min-height: calc(100vh - 75px) !important;
+  /* min-height: calc(100vh - 75px) !important; */
+}
+
+.main_container > * > div {
+  /* height: 100%; */
 }

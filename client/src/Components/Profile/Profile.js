@@ -51,13 +51,13 @@ export class Profile extends Component {
   updateMyProfile(form, data, parentkey) {
     try {
       Object.keys(data).forEach((item) => {
-        if (typeof data[item] == "object") {
+        if (typeof data[item] === "object") {
           this.updateMyProfile(form, data[item], item);
         } else {
           console.log(parentkey ? `${parentkey}[${item}]` : item);
           form.append(
             parentkey ? `${parentkey}[${item}]` : item,
-            data[item] == null ? "" : data[item]
+            data[item] === null ? "" : data[item]
           );
         }
       });
@@ -100,12 +100,12 @@ export class Profile extends Component {
               dirty,
               setFieldValue,
             }) => (
-              <Form className="h-100 p-4 col-md-6 col-12">
+              <Form className=" p-4 col-md-6 col-12">
                 <div className="col-auto text-center mb-4">
                   <label htmlFor="profileImge">
                     <img
                       src={
-                        typeof values?.profile_image == "object"
+                        typeof values?.profile_image === "object"
                           ? URL.createObjectURL(values.profile_image)
                           : values?.profile_image
                       }

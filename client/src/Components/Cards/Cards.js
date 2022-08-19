@@ -43,24 +43,27 @@ export class HistoryCards extends Component {
   render() {
     return (
       <div
-        key={this.props.key}
+        key={this.props.key_value}
         className={`histroy_tracer ${this.props.index === 0 ? "mt-5" : "mt-2"}`}
       >
         <div className="date fs-7 fw-bold text-muted">
           <span>{this.props.date}</span>
         </div>
         {this.props.details_arr.map((item) => (
-          <div className="py-3 d-flex align-items-top justify-content-start flex-wrap">
+          <div
+            className="py-3 d-flex align-items-top justify-content-start flex-wrap"
+            key={item.type + item.summary_date}
+          >
             <div className="px-3">
-              {item.type == "Supplies" ? (
+              {item.type === "Supplies" ? (
                 <BsArrowLeftRight />
-              ) : item.type == "Office Supplies" ? (
+              ) : item.type === "Office Supplies" ? (
                 <BsArrowLeftRight />
-              ) : item.type == "General Banking" ? (
+              ) : item.type === "General Banking" ? (
                 <CgPushDown />
-              ) : item.type == "Equipment" ? (
+              ) : item.type === "Equipment" ? (
                 <AiOutlineCreditCard />
-              ) : item.type == "Marketing" ? (
+              ) : item.type === "Marketing" ? (
                 <AiOutlineVerticalAlignTop />
               ) : (
                 ""
@@ -77,15 +80,15 @@ export class HistoryCards extends Component {
                 className="p-3 rounded-2"
                 style={{
                   backgroundColor:
-                    item.type == "Supplies"
+                    item.type === "Supplies"
                       ? "#fef5f4"
-                      : item.type == "Office Supplies"
+                      : item.type === "Office Supplies"
                       ? "#fbf4fe"
-                      : item.type == "General Banking"
+                      : item.type === "General Banking"
                       ? "#f0faf5"
-                      : item.type == "Equipment"
+                      : item.type === "Equipment"
                       ? "#fff9f3"
-                      : item.type == "Marketing"
+                      : item.type === "Marketing"
                       ? "#f0faf5"
                       : "",
                 }}
@@ -97,15 +100,15 @@ export class HistoryCards extends Component {
                       width: "10px",
                       height: "10px",
                       backgroundColor:
-                        item.type == "Supplies"
+                        item.type === "Supplies"
                           ? "#eb5743"
-                          : item.type == "Office Supplies"
+                          : item.type === "Office Supplies"
                           ? "#c148eb"
-                          : item.type == "General Banking"
+                          : item.type === "General Banking"
                           ? "#0ea7b1"
-                          : item.type == "Equipment"
+                          : item.type === "Equipment"
                           ? "#fe8e27"
-                          : item.type == "Marketing"
+                          : item.type === "Marketing"
                           ? "#2b00d4"
                           : "",
                     }}

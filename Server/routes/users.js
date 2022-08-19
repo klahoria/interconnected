@@ -23,6 +23,7 @@ router.post(
 );
 
 router.post("/login", controllers.login);
+router.post("/access_token_login", controllers.access_token_login);
 
 router
   .route("/add_user_rto")
@@ -62,6 +63,7 @@ router.route("/images/getMyImage/:image").get((req, res) => {
 
     // Extracting file extension
     var ext = path.extname(req.params.image);
+    console.log(req.params);
     // Setting default Content-Type
     var contentType = "text/plain";
 

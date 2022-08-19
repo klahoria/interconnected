@@ -17,8 +17,12 @@ export class App extends Component {
   render() {
     return (
       <div
-        className="container-fluid"
-        style={{ height: window.innerHeight, overflowX: "auto" }}
+        className="container-fluid in_max"
+        style={{
+          minheight: window.innerHeight,
+          height: "100vh",
+          overflowX: "auto",
+        }}
       >
         <Routes>
           <Route element={<PrivateRoute />}>

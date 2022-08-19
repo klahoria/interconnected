@@ -34,20 +34,22 @@ export class Landing extends Component {
           <div className="row flex-wrap pb-5">
             {/* top Area 1 stats */}
             <div className="col-md-3 col-12">
-              <div className="h-100 d-flex flex-column justify-content-between">
+              <span className="pb-3 d-inline-block">
                 <StatCard
                   card_bg="#9ccea6"
                   icon={<BsGraphUp />}
                   title="Total Earnings"
                   amount={"12,222,34.00"}
                 />
+              </span>
+              <span className="py-3 d-inline-block">
                 <StatCard
                   card_bg="#f0f3de"
                   icon={<BsColumnsGap />}
                   title="Goal For This Month"
                   amount={"12,222,34.00"}
                 />
-              </div>
+              </span>
             </div>
             {/* top Area 2 card */}
             <div className="col-md-6 col-12">
@@ -61,19 +63,25 @@ export class Landing extends Component {
             </div>
             {/* top Area 3 stats */}
             <div className="col-md-3 col-12">
-              <div className="h-100 d-flex flex-column justify-content-between">
-                <StatCard
-                  card_bg="#ffc994"
-                  icon={<IoIosTrendingDown />}
-                  title="Total Earnings"
-                  amount={"12,222,34.00"}
-                />
-                <StatCard
-                  card_bg="#bbecff"
-                  icon={<CgShoppingBag />}
-                  title="Goal For This Month"
-                  amount={"12,222,34.00"}
-                />
+              <div className="flex-grow-1">
+                <span className="pb-3 d-inline-block">
+                  <StatCard
+                    card_bg="#ffc994"
+                    icon={<IoIosTrendingDown />}
+                    title="Total Earnings"
+                    amount={"12,222,34.00"}
+                  />
+                </span>
+              </div>
+              <div className="flex-grow-1">
+                <span className="py-3 d-inline-block">
+                  <StatCard
+                    card_bg="#bbecff"
+                    icon={<CgShoppingBag />}
+                    title="Goal For This Month"
+                    amount={"12,222,34.00"}
+                  />
+                </span>
               </div>
             </div>
           </div>

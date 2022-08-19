@@ -198,12 +198,12 @@ export default class SummaryPage extends Component {
                     ],
                   },
                 ].map((item, index) => (
-                  <HistoryCards
-                    date={item.date}
-                    key={index}
-                    index={index}
-                    details_arr={item.details_arr}
-                  />
+                    <HistoryCards
+                      date={item.date}
+                      key={index}
+                      index={index}
+                      details_arr={item.details_arr}
+                    />
                 ))}
               </div>
             </div>

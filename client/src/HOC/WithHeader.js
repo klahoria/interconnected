@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../Components/Header/Header";
 import "./WithHeader.css";
-import store from "../store/store";
 
 function WithHeader(WrappedComponent, selectData) {
   return class extends React.Component {
@@ -37,7 +36,10 @@ function WithHeader(WrappedComponent, selectData) {
           <div className="row">
             <Header></Header>
           </div>
-          <div className="row main_container h-100">
+          <div
+            className="row main_container"
+            style={{ minHeight: window.innerHeight - 75 }}
+          >
             <WrappedComponent></WrappedComponent>
           </div>
         </div>

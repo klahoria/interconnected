@@ -26,7 +26,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="row justify-content-center align-items-center h-100">
+      <div className="row justify-content-center align-items-center ">
         <div className="col-md-4 col-12 pb-5 border rounded-4 shadow">
           <h2 className="py-3 text-center px-3">Login</h2>
 
@@ -47,7 +47,7 @@ class Login extends Component {
             }}
           >
             {({ value, isSubmitting, errors, touched, dirty }) => (
-              <Form className=" h-100 p-4">
+              <Form className="  p-4">
                 <div className="col-auto mb-3">
                   <label htmlFor="staticEmail2" className="visually-hidden">
                     Email
